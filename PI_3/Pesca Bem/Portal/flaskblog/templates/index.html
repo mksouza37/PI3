@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+	<div class= "container m p">
+	
+    <h2 class="mt-4">{% block title %} Bem Vindo ao Pesca Bem, o Portal Ambiental da Indústria Pesqueira! {% endblock %}</h2>
+	
+	<hr>
+	    
+    <p class= "px-3 py-3 bg-info text-white">Esse portal é uma ação voluntária que visa contribuir com a melhoria das práticas ambientais da industria
+    pesqueira no Brasil.<br>Aqui você acessa diversas informações sobre práticas ambientais no âmbito do setor da pesca. Além disso, 
+	é possível interagir com os outros visitantes do portal através do nosso forum. Basta criar uma conta no portal.</p>
+    <hr>
+	
+	<h4> Acesse a partir do menu:</h4>
+	
+	<div class="d-flex">
+    
+    <ul class= "mx-auto px-3 px-3">
+    <li class='capaItem'>Consulta sobre o status do Certificado Ambiental das Empresas</li>
+    <li class='capaItem'>Blog: Práticas Ambientais da Indústria Pesqueira</li>
+    <li class='capaItem'>Fórum: Troque Ideias com os outros Visitantes do Portal</li>
+    <li class='capaItem'>Legislação Recente no Congresso Federal sobre a Pesca</li>
+    <li class='capaItem'>Notícias Recentes do Setor</li>
+	<li class='capaItem'>Estatísticas da Indústria Pesqueira</li>
+	<li class='capaItem'>API de dados</li>
+	<li class='capaItem'>Mural de Vendas para anúncio de produtos</li>
+	<li class='capaItem'>Envio de Sugestões para o Portal</li>
+    </ul>
+	
+	</div>
+	
+	<div class="img-fluid float-right py-3" alt="Responsive image">
+	<img src = {{ url_for('static', filename='download.jpg')}}>
+    <hr>
+   
+  <footer class="mr-4">
+  <p class="float-right font-weight-bold">Projeto Integrador III - Univesp</p>
+  </footer>
+
+	
+	
+   
+  
+  
+  </div>
+      
+{% endblock %}

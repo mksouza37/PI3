@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+
+<div class= "container m p">
+
+<p class= "my-3 px-3 py-3 bg-info text-white"> Bem vindo a API do Portal Pesque Bem. Nossa REST API oferece aos usuários a possibilidade da consultar via sistema a nossa base de dados com a situação de 
+certificação ambiental das empresas do setor pesqueiro. A base pode ser consultada integralmente ou parcialmente, com o uso de de filtros pré-definidos. Caso essa seja a sua necessidade,
+basta seguir as orientações disponibilizadas nessa página. </div>
+
+<hr> 
+
+<h3 class= "px-3 py-3">Orientações para o uso da API do Portal Pesque Bem</h3>
+
+<hr>
+
+<p class= "my-3 px-3 py-3"> A API oferece três alternativas de consulta: base integral, consulta de empresas por estado e consulta de empresa específica via CNPJ.<br>
+A tabela a seguir apresenta o formato da URL que a sua aplicação de seguir ao se comunicar com a API.</p>
+
+<br>
+
+<table class="table">
+<tr>
+    <th scope="col">Tipo de Consulta</th>
+    <th scope="col">Padrão de URL</th>
+	</tr>
+    <tr>
+    <td>Base Integral</td>
+	<td>http://127.0.0.1:5000/api?SEL=todos</td>	
+	</tr>
+	<tr>
+    <td>Empresas por Estado</td>
+	<td>http://127.0.0.1:5000/api?EST=XX</td>	
+	</tr>
+	<tr>
+    <td>Empresa por CNPJ</td>
+	<td>http://127.0.0.1:5000/api?CNPJ=xx.xxx.xxxx/xx</td>	
+  </tr>
+  </table>
+  
+  <p class= "my-3 px-3 py-3"> A API responderá a requisição com um JSON array no seguinte formato: [{item},{item},{item},...].</p>
+
+  
+  
+</div>
+</body>
+	
+{% endblock content %}
+

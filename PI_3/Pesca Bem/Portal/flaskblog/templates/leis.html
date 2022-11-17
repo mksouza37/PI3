@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}		
+		
+{% block content %}	
+
+<div class= "container m p">	
+
+<p class= "my-3 px-3 py-3 bg-success text-white"> Essa página relaciona todas as proposições (projetos de leis, propostas de emendas
+ à Constituição e demais tipos) relacionadas a pesca e que foram registradas na Câmara dos Deputados Federal nos últimos 12 meses. Ao Clicar nos botões você 
+ acessará os textos integrais dos normativos. A fonte da consulta é a base de dados do Congresso.</p> 
+ 
+  <a href="#demo" class="btn" data-toggle="collapse">Legenda - Tipos de Normativos</a>
+  <div id="demo" class="collapse">
+    PEC - Proposta de Emenda à Constituição PLP - Projeto de Lei Complementar PL - Projeto de Lei 
+	MPV - Medida Provisória PLV - Projeto de Lei de Conversão PDL - Projeto de Decreto Legislativo PRC - Projeto de Resolução
+REQ - Requerimento RIC - Requerimento de Informação RCP - Requerimento de Instituição de CPI MSC - Mensagem INC – IndicaçãoADD - Adendo
+ANEXO - Anexo APJ - Anteprojeto ATC - Ato Convocatório AV - Aviso AVN - Aviso (CN) CAC - Comunicado de alteração do controle societário
+CAE - Relatório de Atividades do Comitê de Admissibilidade de Emendas (CAE) CCN - Consulta do Congresso Nacional COI - Relatório do COI
+CON - Consulta
+  </div>
+	<hr>	
+    {% for post in posts %}		
+		
+            <h6>Identificação: {{post['ident']}}<br>Tipo de Normativo: {{ post['siglaTipo']}}<br>Ano: {{ post['ano']}}<br>Ementa: {{ post['ementa']}}<br></h6>			
+            <button id={{ post['uri']}}	type="button" onclick="loadXMLDoc(this.id)">Texto Integral</button>
+            <hr>		
+            		
+    {% endfor %}
+
+</div> 
+<script>
+
+function loadXMLDoc(btnId) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var jsonR = JSON.parse(this.responseText);
+	  console.log('https://docs.google.com/viewerng/viewer?url='+jsonR.dados.urlInteiroTeor)
+	  window.open('https://docs.google.com/viewerng/viewer?url='+jsonR.dados.urlInteiroTeor)	  
+    }
+  };
+  xhttp.open("GET",btnId, true);
+  xhttp.send();
+}
+</script>	
+		
+{% endblock %} 
+

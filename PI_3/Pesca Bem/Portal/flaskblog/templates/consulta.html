@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+	<div class= "container m p">
+
+	<p class= "my-3 px-3 py-3 bg-info text-white">Antes de fechar negócio consulte se o seu parceiro está regular com relação às práticas ambientais! Essa relação 
+	mostra a situação do certificado ambiental do IBAMA das 500 maiores empresas do setor da pesca no Brasil.</p>
+
+	<hr>
+	
+	<div class= "pt-1 pb-1">	
+	    <h2>{% block title %}Status do Certificado Ambiental no IBAMA - Empresas do Setor Pesqueiro{% endblock %}</h2>
+	</div>
+	
+	<hr>
+
+    {% for post in posts %}
+
+            <h6> {{ post['nome']}}<br>{{ post['cnpj']}}<br>{{ post['cidade']}}, {{ post['estado']}}<br>
+            {{ post['ramo']}}<br> {{post['conduta']}}</h6>
+            <hr>
+			            
+    {% endfor %}
+	
+	</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}		
+		
+{% block content %}
+
+<div class= "container m p">
+
+<p class= "my-3 px-3 py-3 bg-success text-white"> Mantenha-se bem informado. Nessa página você encontra links para notícias relacionadas 
+	ao tema de preservação do ambiente na indústria pesqueira. A seleção cobre temas variados a partir	de jornais, revistas, blogs, associações
+	e outras fontes. Para acessar uma notícia, basta clicar no link logo abaixo do seu título.
+ </p> 
+  		
+	<hr>	
+		
+    {% for post in posts %}		
+		
+            <h6>{{ post['dataPub']}}</h6><h4>{{ post['titulo']}}</h4><a href={{ post['link']}} target="_blank">Acesse aqui.</a>
+            <hr>
+			            		
+    {% endfor %}
+
+</div>
+<script>
+
+
+function loadXMLDoc(btnId) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var jsonR = JSON.parse(this.responseText);
+	  window.open(jsonR.dados.urlInteiroTeor)
+    }
+  };
+  xhttp.open("GET",btnId, true);
+  xhttp.send();
+}
+</script>	
+		
+{% endblock %} 
+

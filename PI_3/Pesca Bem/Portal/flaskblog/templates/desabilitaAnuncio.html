@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class= "container m p">
+
+    <div class="form-wrapper">
+      <h2 class="title">Desabilitar Anúncio</h2>
+	  
+	  <p>Digite o número do anúncio que deseja desabilitar.</p>
+	    
+      <form method="POST" action="{{ url_for('desabilitaanuncio') }}" enctype="multipart/form-data">
+	  
+	   {{ form.csrf_token }}
+	 
+          <fieldset class="form-field">
+		      
+              {{ form.numero.label}}
+              {{ form.numero}}
+			
+			{% if form.numero.errors %}
+				<ul class="errors">
+					{% for error in form.numero.errors %}
+						<li>{{ error }}</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+			  		  
+          </fieldset>
+		  	  
+		  		  
+	 {{ form.submit }}
+	 
+      </form>
+    </div>
+	</div>
+	
+
+{% endblock %}

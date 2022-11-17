@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<body>
+
+<div class= "container m p">
+
+<p class= "my-3 px-3 py-3 bg-info text-white"> Nessa seção do portal você encontra estatísticas interessantes. Há informações específicas sobre o status da certificação ambiental das empresas por estado. 
+ Há também informações de interesse mais geral: volumes da atividade pesqueira no mundo, no Brasil e no Estado de São Paulo. Caso tenha interesse em outras estatísticas, entre em contato conosco.</p>
+
+<hr> 
+
+<h3>Consulte a situação da certificação ambiental das empresas por estado do Brasil.</h3>
+<h6>Ao clicar no botão abaixo uma nova aba será aberta com essa estatística. Basta passar o mouse sobre os estados.</h6>
+<br>
+
+<a href={{url_for('static', filename='Empresas por Estado.html')}} target="_blank"><input class="btn btn-secondary" type=”button” value='Mapa Coroplético'></a> 
+
+ <br><br>
+ <hr>
+ <br>
+ 
+<h3>Há uma relação entre o tamanho de um peixe e o risco de extinção da sua espécie?</h3>
+<h6>Toque na baleia para conferir nosso estudo.</h6>
+
+<div class="img-fluid mx-auto py-3" alt="Responsive image">
+<a href="{{ url_for('estTam') }}" target="_blank"> <img src={{ url_for('static', filename='baleia.png')}} alt="Desenho de uma Baleia" ></a>
+
+</div>
+<hr> 
+
+<h3>Como está a distribuição da produção pesqueira pelo mundo?</h3>
+<h6>Toque no globo abaixo e confira!.</h6>
+
+<br>
+
+<div class="img-fluid mx-auto py-3" alt="Responsive image">
+<a href={{ url_for('static', filename='Prod_Mundial.JPG')}} target="_blank"> <img src={{ url_for('static', filename='mundoIcon.png')}} alt="Gráfico de Barras com a Produção Mundial de Pescados por País em 2016" </a>
+</div>
+<hr> 
+
+<h3>E no Brasil?</h3>
+<h6>Toque no mapa abaixo e confira!.</h6>
+
+<br>
+
+<div class="img-fluid mx-auto py-3" alt="Responsive image">
+<a href={{ url_for('static', filename='Prod_Brasil.JPG')}} target="_blank"> <img src={{ url_for('static', filename='BrasilIcon.png')}} alt="Gráfico de Barras com a Produção Brasileira de Pescados por estado em 2016" </a>
+</div>
+
+<hr> 
+<h3>Conheça no detalhe a produção do litoral paulista.</h3>
+<h6>Toque no mapa abaixo e confira!.</h6>
+
+<br>
+
+<div class="img-fluid mx-auto py-3" alt="Responsive image">
+<a href={{ url_for('static', filename='Prod_SaoPaulo.JPG')}} target="_blank"> <img src={{ url_for('static', filename='SPIcon.png')}} alt="Tabela com a Pesca extrativa do Estado de São Paulo em 2021 com quebras por município e espécie de pescado" </a>
+</div>
+
+</div>
+
+</body>
+	
+{% endblock content %}
+

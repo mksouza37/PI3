@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS Legislacao;
+
+CREATE TABLE Legislacao (
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ident INTEGER NOT NULL,
+	siglaTipo TEXT NOT NULL,
+    ano TEXT INTEGER NULL,
+    ementa TEXT NOT NULL,
+    uri TEXT NOT NULL
+);

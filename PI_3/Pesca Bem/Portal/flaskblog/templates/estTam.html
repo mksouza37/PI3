@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+	<div class= "container m p">
+
+	<p class= "my-3 px-3 py-3 bg-info text-white">Sim, existe e não é pouca.</p>
+
+	<hr>
+	
+	<div class= "pt-1 pb-1">	
+	    <p> A base de dados "Life-history traits, geographical range and conservation aspects of reef fishes from the Atlantic and Eastern Pacific", 
+		disponível no repositório científico aberto Zenodo oferece diversas informações sobre 2198 espécies de peixes de recife, incluindo os 
+		presentes na costa brasileira (386 espécies).
+		Utilizando informações dessa base e o modelo de inteligência artifical "DecisionTreeRegressor", averiguamos a relação entre o tamanho de 
+		um peixe e o risco de extinção de sua espécie, mensurado por um indicador de vulnerabilidade que faz parte da base de dados.<br><br>
+		A variável tamanho explica mais de 70% da vulnerabilidade. Verifique nesse <a href="/static/CorrelTamVul.png">gráfico</a>.<br><br>Entre os peixes de menor tamanho, a vulnerabilidade não supera 40 (a escala do indicador vai de 0 a 100). 
+		Já para os peixes de maior tamanho, ela não fica abaixo de 30 e apresenta muitos casos acima de 60.
+		A estatística apenas reforça a necessidade de atenção com a legislação voltada para a preservação dessas espécies de maior porte. Tanto
+		por parte dos legisladores, aperfeiçoando os mecanismos existentes, quanto por parte das empresas e pescadores, procurando seguir as
+		boas práticas. </p>
+	</div>
+	
+	<hr>
+	  
+	
+	</div>
+
+{% endblock %}

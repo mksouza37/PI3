@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Formulário para Contato</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('qJiHNLegXUk5AjnUX');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('service_ijwujkf', 'contact_form', this)
+                    .then(function() {
+                        window.alert('Sugestão enviada com sucesso!');
+						document.getElementById("contact-form").reset();
+                    }, function(error) {
+                        window.alert('Ocorreu um erro no envio. Tente novamente, por favor!', error);
+						document.getElementById("contact-form").reset();
+                    });
+            });
+        }
+
+
+		</script>
+	
+</head>
+
+<body>
+	<div class= "container m p">
+
+	<div class= "pt-5 pb-3">	
+	<h2> Envie aqui Sugestões e Comentários para o Portal </h2>
+	</div>
+
+    <form id="contact-form">
+	    <input type="hidden" name="contact_number">
+		<div class="form-group">
+		<label>Nome</label>
+        <input type="text" class="form-control" name="user_name">
+		</div>
+		<div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" name="user_email">
+		</div>
+		<div class="form-group">
+        <label>Mensagem</label>
+        <textarea name="message" class="form-control" rows="5"></textarea>
+		</div>
+        <input type="submit" class="btn btn-default" value="Enviar">
+    </form>	
+
+	</div>
+
+</body>
+</html>
+	
+{% endblock content %}

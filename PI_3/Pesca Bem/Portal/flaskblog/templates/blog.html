@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class= "container p-4 my-4 bg-success text-white"> Bem vindo ao Blog do Pesque Bem! Com frequência postamos aqui novidades sobre as práticas ambientais 
+da indústria pesqueira. Os temas do blog são diversificados, nele você encontrará avisos sobre enventos, bastidores
+de transações entre empresas do setor, tendências e novidades sobre novas práticas ambientais e muito mais. Aproveite!</div> 
+
+    {% for post in postsbl %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" "background-size:cover" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+
+{% endblock content %}
+

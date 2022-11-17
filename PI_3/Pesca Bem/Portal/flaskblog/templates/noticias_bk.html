@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+	<div class= "container p-4 my-4 bg-info text-white">Mantenha-se bem informado. Nessa página você encontra links para notícias relacionadas 
+	ao tema de preservação do ambiente na indústria pesqueira. A seleção cobre temas variados a partir	de jornais, revistas, blogs, associações
+	e outras fontes. Para acessar uma notícia, basta clicar no link logo abaixo do seu título.</div>
+	
+	<div class= "container pt-1 pb-0">	
+	    <h2>{% block title %}Notícias sobre Preservação Ambiental no Setor Pesqueiro{% endblock %}</h2>
+	
+	<hr>
+
+    {% for post in posts %}
+
+            <h6>{{ post['dataPub']}}</h6><h4>{{ post['titulo']}}</h4><a href={{ post['link']}} target="_blank">{{ post['link']}}</a>
+            <hr>
+            
+    {% endfor %}
+	
+	</div>
+
+
+{% endblock %}
